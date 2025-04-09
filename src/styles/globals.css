@@ -2,11 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'UniversalSans-850';
+  src: url('/fonts/UniversalSans-850.woff2') format('woff2');
+  font-weight: 850;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #f9fafb;
 }
 
 h1, h2, h3 {
-  font-family: 'Exo', sans-serif;
+  font-family: 'Oswald', sans-serif;
+}
+
+.font-universal {
+  font-family: 'UniversalSans-850', sans-serif;
 }
