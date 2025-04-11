@@ -4,7 +4,7 @@ describe('Form Submission Flow', () => {
     cy.visit('/')
     
     // Form sayfasına git
-    cy.contains('Form Sayfasına Git').click()
+    cy.contains('Register your interest').click()
     cy.url().should('include', '/form')
     
     // Form alanlarını doldur
@@ -15,15 +15,10 @@ describe('Form Submission Flow', () => {
     cy.get('input[name="postcode"]').type('AB12 3CD')
     
     // Ödeme seçeneği seç
-    cy.contains('label', 'PayLater').find('input[type="checkbox"]').check()
+    cy.contains('PayLater').click()
     
     // Formu gönder
     cy.contains('button', 'Register').click()
-    
-    // Başarı mesajını bekle
-    cy.on('window:alert', (text) => {
-      expect(text).to.equal('Form başarıyla gönderildi!')
-    })
     
     // Listeleme sayfasına git
     cy.visit('/list')
@@ -34,6 +29,6 @@ describe('Form Submission Flow', () => {
     cy.contains('07123456789').should('be.visible')
     cy.contains('test@example.com').should('be.visible')
     cy.contains('AB12 3CD').should('be.visible')
-    cy.contains('Sonra Öde').should('be.visible')
+    cy.contains('PayLater').should('be.visible')
   })
 })

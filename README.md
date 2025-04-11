@@ -22,3 +22,8 @@ A modern, accessible form submission and listing app built with **Next.js**, **T
 cd bumper-fe-task
 npm install
 npm run dev
+
+## 👀 Test It!
+- when the application is running on another terminal, simply type:
+npx cypress open
+- choose E2E, Chrome, and the "form" case! 
