@@ -1,22 +1,52 @@
 @import "tailwindcss";
 
-
 @font-face {
-  font-family: 'UniversalSans-850';
-  src: url('/fonts/UniversalSans-850.woff2') format('woff2');
+  font-family: "UniversalSans-850";
+  src: url("/fonts/UniversalSans-850.woff2") format("woff2");
   font-weight: 850;
   font-style: normal;
   font-display: swap;
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", Arial, sans-serif;
+  color: #1b1b1b;
 }
 
-h1, h2, h3 {
-  font-family: 'Oswald', sans-serif;
+h1,
+h2,
+h3,
+.font-oswald {
+  font-family: "Oswald", "Arial Black", sans-serif;
 }
 
 .font-universal {
-  font-family: 'UniversalSans-850', sans-serif;
+  font-family: "UniversalSans-850", sans-serif;
+}
+
+.has-hero-bg {
+  background-color: #e5e5e5;
+}
+
+@media (max-width: 768px) {
+  .has-hero-bg {
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.text-brand {
+  color: #ff733c;
+}
+
+.bg-brand {
+  background-color: #ff733c;
+}
+
+.text-accent {
+  color: #32be50;
+}
+
+.bg-accent {
+  background-color: #32be50;
 }

@@ -6,7 +6,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     const data = req.body as Submission;
 
-    // Store the submission in memory using the storage module
     const result = addSubmission(data);
 
     return res.status(200).json({ message: 'Submission received', data: result });

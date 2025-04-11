@@ -26,7 +26,6 @@ const validationSchema = {
     return undefined;
   },
 
-  // Bu sadece tanımsal olarak burada durabilir ama aslında form-wide olarak kullanılacak:
   formLevel: ({ value }: { value: Submission }) => {
     if (!value.pay_now && !value.pay_later) {
       return 'Please select at least one payment option';

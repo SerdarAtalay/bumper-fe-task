@@ -1,29 +1,40 @@
-import { CheckCircleIcon } from './BuIcon'
+import React from 'react';
 
-export default function Example() {
+interface BuButtonProps {
+  type?: 'button' | 'submit' | 'reset';
+  children: React.ReactNode;
+  icon?: React.ReactNode;
+  fullWidth?: boolean;
+  onClick?: () => void;
+  className?: string;
+}
+
+export default function BuButton({
+  type = 'button',
+  children,
+  icon,
+  fullWidth = false,
+  onClick,
+  className = '',
+}: BuButtonProps) {
+  const baseStyles = "flex flex-row justify-center items-center py-3 px-4 gap-2.5 rounded-full border border-[#1B1B1B] font-['Open_Sans'] text-base bg-[#32BE50] text-[#1B1B1B] hover:text-white hover:bg-[#32BE50]/90 active:bg-[#1B1B1B]/90 ";
+  
+  const widthStyles = fullWidth ? "w-full" : "";
+  
+  const buttonStyle = `${baseStyles} ${widthStyles} ${className}`;
+
   return (
-    <>
-      <button
-        type="button"
-        className="inline-flex items-center gap-x-1.5 rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-      >
-        Button text
-        <CheckCircleIcon aria-hidden="true" className="-mr-0.5 size-5" />
-      </button>
-      <button
-        type="button"
-        className="inline-flex items-center gap-x-1.5 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-      >
-        Button text
-        <CheckCircleIcon aria-hidden="true" className="-mr-0.5 size-5" />
-      </button>
-      <button
-        type="button"
-        className="inline-flex items-center gap-x-2 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-      >
-        Button text
-        <CheckCircleIcon aria-hidden="true" className="-mr-0.5 size-5" />
-      </button>
-    </>
-  )
+    <button
+      type={type}
+      onClick={onClick}
+      className={buttonStyle}
+    >
+      <span>{children}</span>
+      {icon && (
+        <span className="flex items-center justify-center">
+          {icon}
+        </span>
+      )}
+    </button>
+  );
 }
